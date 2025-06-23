@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Blog Post</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-100 flex flex-col">
+    <%- include("../partials/nav") %>
+
+    <section class="flex-grow container mx-auto p-6">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Edit your Blog Post</h1>
+        
+        <form action="/editBlog/<%- BLOG[0].id %>" method="POST" class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
+            <!-- Title -->
+            <div class="mb-4">
+                <label for="title" class="block text-gray-700 font-semibold mb-2">Title</label>
+                <input type="text" value="<%- BLOG[0].title %>" id="title" name="title" required
+                       class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       placeholder="Enter blog title">
+            </div>
+            <!-- Title -->
+            <div class="mb-4">
+                <label for="subtitle" class="block text-gray-700 font-semibold mb-2">Sub Title</label>
+                <input type="text" value="<%- BLOG[0].subtitle %>" id="subtitle" name="subtitle" required
+                       class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       placeholder="Enter blog title">
+            </div>
+
+            <!-- description -->
+            <div class="mb-4">
+                <label for="description" class="block text-gray-700 font-semibold mb-2">Description</label>
+                <textarea id="description" name="description" required 
+                          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="Write your blog content here"><%- BLOG[0].description %></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit"
+                        class="bg-blue-600 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-blue-700 transition">
+                    Edit Post
+                </button>
+            </div>
+        </form>
+    </section>
+
+</body>
+</html>
